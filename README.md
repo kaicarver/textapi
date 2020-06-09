@@ -1,4 +1,24 @@
+# Quickie API for text notes
+
+This is where I work out a spec for a minimal API to write and read text notes.
+
+It's colossally simple and dumb, but I hope to eventually use it for useful things.
+
+## getting the text
+
+This shows all the text notes:
+
+https://powerful-anchorage-09770.herokuapp.com/gettext
+
+Eventually will be able to request the text for one day, for one hour, etc.
+
+## posting the text
+
+And there will be a less dumb function for posting text.
+
 # node-js-getting-started
+
+(below is just the README for the original Heroku example app this is based on)
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
