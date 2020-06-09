@@ -31,9 +31,8 @@ express()
   .get('/badposttext', async (req, res) => {
     try {
       const client = await pool.connect();
-      const result = await client.query('SELECT * FROM note');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/note', results );
+      const result = await client.query("INSERT INTO note(message) VALUES('Hey another note in ATRAApps')");
+      res.send('inserted another note');
       client.release();
     } catch (err) {
       console.error(err);
