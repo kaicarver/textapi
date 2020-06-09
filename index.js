@@ -2,7 +2,7 @@ const cool = require('cool-ascii-faces');
 const express = require('express');
 const path = require('path');
 const { Pool } = require('pg');
-const pool = new PushSubscriptionOptions;({
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
