@@ -4,7 +4,9 @@ This is where I work out a spec for a minimal API to write and read text notes.
 
 It's colossally simple and dumb, but I hope to eventually use it for useful things.
 
-## getting the text
+## API
+
+### getting the text
 
 This shows all the text notes:
 
@@ -12,9 +14,29 @@ https://powerful-anchorage-09770.herokuapp.com/gettext
 
 Eventually will be able to request the text for one day, for one hour, etc.
 
-## posting the text
+### posting the text
 
-And there will be a less dumb function for posting text.
+And there will be a less dumb function than `badposttext` for posting text...
+
+## Administration
+
+## setting up the database locally
+
+To be documented.
+
+## deploying
+
+```bash
+# make changes, test locally (can also be done from VS Code)
+npm run start
+# commit any changes
+git commit -am "some changes..."
+# deploy to Heroku
+# (sudo is currently required because of how I installed the Heroku CLI)
+sudo git push heroku master
+# save to GitHub repo
+git push
+```
 
 # node-js-getting-started
 
