@@ -10,7 +10,7 @@
   .jumbotron p {
     color: #d9ccee;
     max-width: 75%;
-    margin: 1em auto 2em; }
+    margin: 0.5em auto 0em; }
   .navbar + .jumbotron {
     margin-top: -20px; }
   .jumbotron .lang-logo {
@@ -24,4 +24,5 @@
     border: 2px solid white; }
     .jumbotron .lang-logo img {
       max-width: 100%; }
+
 
