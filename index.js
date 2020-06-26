@@ -42,7 +42,7 @@ express()
   .post('/posttext', async (req, res) => {
     try {
       const client = await pool.connect();
-      const result = await client.query("INSERT INTO note(message) VALUES($1)", [req.body.text]);
+      const result = await client.query("INSERT INTO note(message) VALUES($1)", ['oops']); // [req.body.text]);
       res.send('inserted another note via POST with safe INSERT');
       client.release();
     } catch (err) {
