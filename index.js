@@ -39,6 +39,17 @@ express()
       res.send("Error " + err);
     }
   })
+  .post('/posttext', async (req, res) => {
+    try {
+      const client = await pool.connect();
+      const result = await client.query("INSERT INTO note(message) VALUES('Hey a note POSTed in MATRA')");
+      res.send('inserted another note via POST');
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
   .get('/gettext', async (req, res) => {
     try {
       const client = await pool.connect();
