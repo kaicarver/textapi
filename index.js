@@ -1,5 +1,6 @@
 const cool = require('cool-ascii-faces');
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -13,6 +14,8 @@ const PORT = process.env.PORT || 5000
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+  .use(bodyParser.json()) // support json encoded bodies
+  .use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
@@ -42,8 +45,8 @@ express()
   .post('/posttext', async (req, res) => {
     try {
       const client = await pool.connect();
-      const result = await client.query("INSERT INTO note(message) VALUES($1)", ['oops']); // [req.body.text]);
-      res.send('inserted another note via POST with safe INSERT');
+      const result = await client.query("INSERT INTO note(message) VALUES($1)", [req.body.text]);
+      res.send('inserted a note via POST with safe INSERT: ' + req.body.text);
       client.release();
     } catch (err) {
       console.error(err);
