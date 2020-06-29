@@ -25,4 +25,8 @@
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
+input {
+  color: black;
+  font-size: 18px;
+}
 
