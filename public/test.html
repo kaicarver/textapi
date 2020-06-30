@@ -1,24 +1,46 @@
 <html>
 
 <head>
+  <title>Experimental Use of Kai's Tiny Text-posting API</title>
+  <base href="https://powerful-anchorage-09770.herokuapp.com/" target="_blank">
 </head>
 
 <body>
   <h1>Testing Kai's Tiny Text-posting API</h1>
   <p>
-    <a type="button" class="btn btn-lg btn-default" href="/gettext">gettext</a>
+    So far the API is very simple. You can post a bit of text with <code>posttext</code>, which takes a single parameter called...  <code>text</code>, and you can retrieve all the bits of text posted so far with a GET from <code>gettext</code> (probably will use a single <code>text</code> endpoint for both in the final version).
   </p>
   <p>
-    <a type="button" class="btn btn-lg btn-default" href="/badposttext">badposttext</a>
+    <a href="/gettext">gettext</a><br>
+    This shows all the text posted so far.
   </p>
   <p>
   <form action="/posttext" method="POST">
-    <input type="text" name="text" placeholder="Text">
+    <input type="text" name="text" placeholder="Text input">
+    <button type="submit">posttext</button>
+  </form>
+  </p>
+  <p>
+  <form action="/posttext" method="POST">
+    <input type="text" name="text" placeholder="Text input" value="20 push-ups 20 sit ups 20 squats">
+    <button type="submit">posttext</button><br>
+    pre-filled out text can be handy as a shortcut to post activities in a certain conventional, easy-to-mine format.
+  </form>
+  </p>
+  <p>
+  <form action="/posttext" method="POST">
+    <textarea name="text" placeholder="Text area">
+
+some longer text...
+
+with paragraphs.
+
+</textarea>
     <button type="submit" class="btn btn-lg btn-default">posttext</button>
   </form>
   </p>
   <p>
-    <a type="button" class="btn btn-lg btn-default" href="/">Home</a>
+    <a href="/">Home</a>
   </p>
 
 </body>
