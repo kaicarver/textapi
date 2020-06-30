@@ -4,6 +4,10 @@ This is where I work out a spec for a minimal API to write and read text notes.
 
 It's colossally simple and dumb, but I hope to eventually use it for useful things.
 
+Can test the API here:
+
+https://raw.githack.com/kaicarver/textapi/master/public/test.html
+
 ## API
 
 ### getting the text
