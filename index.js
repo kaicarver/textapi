@@ -65,6 +65,10 @@ express()
       res.send("Error " + err);
     }
   })
+  .get('/gettext2', function(req, res) {
+    res.send("tagId is set to " + req.query.tagId);
+    // GET /p?tagId=5
+  })
   .get('/gettextsite', async (req, res) => {
     try {
       const client = await pool.connect();
