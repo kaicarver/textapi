@@ -6,6 +6,10 @@ It's colossally simple and dumb, but I hope to eventually use it for useful thin
 
 Can test the API here:
 
+https://powerful-anchorage-09770.herokuapp.com/test.html
+
+or here:
+
 https://raw.githack.com/kaicarver/textapi/master/public/test.html
 
 ## API
@@ -17,6 +21,10 @@ This shows all the text notes:
 https://powerful-anchorage-09770.herokuapp.com/gettext
 
 Eventually will be able to request the text for one day, for one hour, etc.
+
+can also just query the database like so:
+
+    sudo heroku pg:psql -c "select created, message from note where created between '2020-07-03' and '2020-07-04';" --app "powerful-anchorage-09770"
 
 ### posting the text
 
