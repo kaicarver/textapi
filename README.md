@@ -26,6 +26,10 @@ can also just query the database like so:
 
     sudo heroku pg:psql -c "select created, message from note where created between '2020-07-03' and '2020-07-04';" --app "powerful-anchorage-09770"
 
+and even pipe that directly into:
+
+    perl ../blog/countpushups.pl
+
 ### posting the text
 
 And there will be a less dumb function than `badposttext` for posting text...
