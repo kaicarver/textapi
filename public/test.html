@@ -2,61 +2,95 @@
 
 <head>
   <title>Experimental Use of Kai's Tiny Text-posting API</title>
-  <base href="https://powerful-anchorage-09770.herokuapp.com/" target="_blank">
+  <base href="https://powerful-anchorage-09770.herokuapp.com/" target="output">
+  <style>
+    table {
+      width: 100%;
+    }
+
+    iframe {
+      height: 500px;
+      left: 0;
+      position: relative;
+      top: 0;
+      width: 800px;
+    }
+
+    input {
+      width: 20em;
+    }
+
+    textarea {
+      width: 20em;
+      height: 5em;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Testing Kai's Tiny Text-posting API</h1>
+  <h1>Testing Kai's Tiny Text-posting API...</h1>
+  <table>
+    <tr>
+      <td>
+        <p>
+          <a href="/gettext">gettext</a><br>
+          This shows all the text posted so far.
+        </p>
+        <p>
+        <form action="/posttext" method="POST">
+          <input type="text" name="text" placeholder="Text input">
+          <button type="submit">posttext</button>
+        </form>
+        </p>
+        <p>
+        <form action="/posttext" method="POST">
+          <textarea name="text" placeholder="Text area"></textarea>
+          <button type="submit" class="btn btn-lg btn-default">posttext</button>
+        </form>
+        </p>
+        <p>
+          pre-filled out text can be handy as a shortcut to post activities in a certain conventional, easy-to-mine
+          format.
+        <form action="/posttext" method="POST">
+          <input type="text" name="text" value="20 push-ups 20 sit ups 20 squats">
+          <button type="submit">posttext</button><br>
+        </form>
+        <form action="/posttext" method="POST">
+          <input type="text" name="text" value="10 bench dips">
+          <button type="submit">posttext</button><br>
+        </form>
+        <form action="/posttext" method="POST">
+          <input type="text" name="text" value="10 practice pullups">
+          <button type="submit">posttext</button><br>
+        </form>
+        <form action="/posttext" method="POST">
+          <input type="text" name="text" value="10 salutes to the sun">
+          <button type="submit">posttext</button><br>
+        </form>
+        <form action="/posttext" method="POST">
+          <input type="text" name="text" value="10 reverse lunges">
+          <button type="submit">posttext</button><br>
+        </form>
+        <form action="/posttext" method="POST">
+          <input type="text" name="text" value="10 jumping jacks">
+          <button type="submit">posttext</button><br>
+        </form>
+        </p>
+      </td>
+      <td>
+        <div class="iframe-container">
+          <iframe name="output"></iframe>
+        </div>
+      </td>
+    </tr>
+  </table>
   <p>
-    So far the API is very simple. You can post a bit of text with <code>posttext</code>, which takes a single parameter called...  <code>text</code>, and you can retrieve all the bits of text posted so far with a GET from <code>gettext</code> (probably will use a single <code>text</code> endpoint for both in the final version).
+    So far the API is very simple. You can post a bit of text with <code>posttext</code>, which takes a single parameter
+    called... <code>text</code>, and you can retrieve all the bits of text posted so far with a GET from
+    <code>gettext</code> (probably will use a single <code>text</code> endpoint for both in the final version).
   </p>
-  <p>
-    <a href="/gettext">gettext</a><br>
-    This shows all the text posted so far.
-  </p>
-  <p>
-  <form action="/posttext" method="POST">
-    <input type="text" name="text" placeholder="Text input">
-    <button type="submit">posttext</button>
-  </form>
-  </p>
-  <p>
-  <form action="/posttext" method="POST">
-    <textarea name="text" placeholder="Text area"></textarea>
-    <button type="submit" class="btn btn-lg btn-default">posttext</button>
-  </form>
-  </p>
-  <p>
-    pre-filled out text can be handy as a shortcut to post activities in a certain conventional, easy-to-mine format.
-    <form action="/posttext" method="POST">
-      <input type="text" name="text" value="20 push-ups 20 sit ups 20 squats">
-      <button type="submit">posttext</button><br>
-    </form>
-    <form action="/posttext" method="POST">
-      <input type="text" name="text" value="10 bench dips">
-      <button type="submit">posttext</button><br>
-    </form>
-    <form action="/posttext" method="POST">
-      <input type="text" name="text" value="10 practice pullups">
-      <button type="submit">posttext</button><br>
-    </form>
-    <form action="/posttext" method="POST">
-      <input type="text" name="text" value="10 salutes to the sun">
-      <button type="submit">posttext</button><br>
-    </form>
-    <form action="/posttext" method="POST">
-      <input type="text" name="text" value="10 reverse lunges">
-      <button type="submit">posttext</button><br>
-    </form>
-    <form action="/posttext" method="POST">
-      <input type="text" name="text" value="10 jumping jacks">
-      <button type="submit">posttext</button><br>
-    </form>
-    </p>
   <p>
     <a href="/">Home</a>
   </p>
-
 </body>
-
 </html>
