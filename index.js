@@ -56,7 +56,7 @@ express()
   .get('/gettext', async (req, res) => {
     try {
       const client = await pool.connect();
-      const result = await client.query('SELECT * FROM note');
+      const result = await client.query('SELECT * FROM note ORDER BY created DESC');
       const results = { 'results': (result) ? result.rows : null};
       res.render('pages/gettext', results );
       client.release();
