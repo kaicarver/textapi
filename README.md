@@ -26,7 +26,9 @@ can also just query the database like so:
 
     sudo heroku pg:psql -c "select created, message from note where created between '2020-07-03' and '2020-07-04';" --app "powerful-anchorage-09770"
 
-and even pipe that directly into:
+    sudo heroku pg:psql -c "select to_char(created, 'YYYY/MM/DD') as date, to_char(created, 'hh24:mi:ss') as time, message from note where created between '2020-07-16' and '2020-07-17' order by created DESC;" --app "powerful-anchorage-09770"
+
+and even pipe the first one directly into:
 
     perl ../blog/countpushups.pl
 
