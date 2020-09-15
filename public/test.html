@@ -47,6 +47,13 @@
         </form>
         </p>
         <p>
+          <form action="/posttext" method="POST">
+            <input type="hidden" name="text" placeholder="Text input" value="10 push-ups">
+            <button type="submit">10 push-ups</button>
+            <button title="Edit" onclick="alert('NYI')">✎</button>
+          </form>
+        </p>
+        <p>
         <form action="/posttext" method="POST">
           <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
           <button type="submit">posttext</button>
