@@ -48,9 +48,9 @@
         </p>
         <p>
           <form action="/posttext" method="POST">
-            <input type="hidden" name="text" id="testvalue" s">
+            <input type="hidden" name="text" id="testvalue" value="10 push-ups">
             <button type="submit" id="testlabel">10 push-ups</button>
-            <button type="button" title="Edit" onclick="activity = prompt('Edit activity:', 'NYI'); document.getElementById('testlabel').innerText = activity; document.getElementById('testvalue').value = activity">✎</button>
+          <button type="button" title="Edit" onclick="activity = prompt('Edit activity:', document.getElementById('testvalue').value); if (activity) { document.getElementById('testlabel').innerText = activity; document.getElementById('testvalue').value = activity }">✎</button>
           </form>
         </p>
         <p>
