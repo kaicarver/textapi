@@ -49,8 +49,8 @@
         <p>
           <form action="/posttext" method="POST">
             <input type="hidden" name="text" placeholder="Text input" value="10 push-ups">
-            <button type="submit">10 push-ups</button>
-            <button type="button" title="Edit" onclick="activity = prompt('Edit activity:', 'NYI'); this.innerText = activity">✎</button>
+            <button type="submit" id="test">10 push-ups</button>
+            <button type="button" title="Edit" onclick="activity = prompt('Edit activity:', 'NYI'); document.getElementById('test').innerText = activity">✎</button>
           </form>
         </p>
         <p>
