@@ -50,7 +50,7 @@
           <form action="/posttext" method="POST">
             <input type="hidden" name="text" placeholder="Text input" value="10 push-ups">
             <button type="submit">10 push-ups</button>
-            <button type="button" title="Edit" onclick="person = prompt('Edit activity:', 'NYI')">✎</button>
+            <button type="button" title="Edit" onclick="activity = prompt('Edit activity:', 'NYI'); this.innerText = activity">✎</button>
           </form>
         </p>
         <p>
