@@ -1,0 +1,7 @@
+This is how to deploy to Heroku:
+
+sudo git push heroku master
+
+Regular commits just go to the GitHub repo without affecting the version currently deployed on Heroku.
+
+See README.md for how to access database.
