@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Kai's Tiny Text-posting API</title>
@@ -7,7 +8,9 @@
       width: 100%;
     }
 
-    td { vertical-align: top; }
+    td {
+      vertical-align: top;
+    }
 
     iframe {
       height: 800px;
@@ -18,10 +21,22 @@
       resize: both;
     }
 
-    h1 { font-size: 1.5em; }
+    form {
+      margin: 0;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
 
     input {
       width: 20em;
+    }
+
+    .activity {
+      font-size: 1.5rem;
     }
 
     textarea {
@@ -41,6 +56,7 @@
     }
   </script>
 </head>
+
 <body>
   <table>
     <tr>
@@ -48,38 +64,35 @@
         <h1>Kai's Tiny Text-posting API</h1>
         <p>
           <a href="/gettext">gettext<br>
-          Shows all the text posted so far.</a>
+            Shows all the text posted so far.</a>
         </p>
-        <p>
         <form action="/posttext" method="POST">
-          <input type="text" name="text" placeholder="Text input" value="20 push-ups">
-          <button type="submit">posttext</button>
+          <input type="hidden" name="text" value="10 push-ups">
+          <button class="activity" type="submit">10 push-ups</button>
+          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
         </form>
-        </p>
-        <p>
-          <form action="/posttext" method="POST">
-            <input type="hidden" value="10 push-ups" name="text">
-            <button type="submit">10 push-ups</button>
-            <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-          </form>
-        </p>
-        <p>
+        <form action="/posttext" method="POST">
+          <input type="hidden" name="text" value="10 sit-ups">
+          <button class="activity" type="submit">10 sit-ups</button>
+          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
+        </form>
+        <form action="/posttext" method="POST">
+          <input type="hidden" value="10 squats" name="text">
+          <button class="activity" type="submit">10 squats</button>
+          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
+        </form>
         <form action="/posttext" method="POST">
           <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
           <button type="submit">posttext</button>
         </form>
-        </p>
-        <p>
-          pre-filled out text can be handy as a shortcut to post activities in a certain conventional, easy-to-mine
-          format.
         <form action="/posttext" method="POST">
           <input type="hidden" value="25 push-ups 25 sit ups 25 squats" name="text">
-          <button type="submit">25 push-ups 25 sit ups 25 squats</button>
+          <button class="activity" type="submit">25 push-ups 25 sit ups 25 squats</button>
           <button type="button" title="Edit" onclick="editButton(this)">✎</button>
         </form>
         <form action="/posttext" method="POST">
           <input type="hidden" value="10 bench dips" name="text">
-          <button type="submit">10 bench dips</button>
+          <button class="activity" type="submit">10 bench dips</button>
           <button type="button" title="Edit" onclick="editButton(this)">✎</button>
           <br>
         </form>
@@ -103,7 +116,6 @@
           <input type="text" name="text" value="5 burpees">
           <button type="submit">posttext</button><br>
         </form>
-        </p>
       </td>
       <td>
         <div class="iframe-container">
@@ -113,12 +125,17 @@
     </tr>
   </table>
   <p>
-    So far the API is very simple, and very experimental. You can post a bit of text with <code>posttext</code>, which takes a single parameter
+    So far the API is very simple, and very experimental. You can post a bit of text with <code>posttext</code>, which
+    takes a single parameter
     called... <code>text</code>, and you can retrieve all the bits of text posted so far with a GET from
     <code>gettext</code> (probably will use a single <code>text</code> endpoint for both in the final version).
+    Pre-filled out text can be handy as a shortcut to post activities in a certain conventional, easy-to-mine
+    format.
+
   </p>
   <p>
     <a href="/">Home</a>
   </p>
 </body>
+
 </html>
