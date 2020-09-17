@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <title>Kai's Tiny Text-posting API</title>
   <base href="https://powerful-anchorage-09770.herokuapp.com/" target="output">
@@ -16,6 +15,7 @@
       position: relative;
       top: 0;
       width: 800px;
+      resize: both;
     }
 
     h1 { font-size: 1.5em; }
@@ -29,8 +29,16 @@
       height: 5em;
     }
   </style>
+  <script>
+    function editButton() {
+      let activity = prompt('Edit activity:', document.getElementById('testvalue').value);
+      if (activity) {
+        document.getElementById('testlabel').innerText = activity;
+        document.getElementById('testvalue').value = activity;
+      }
+    }
+  </script>
 </head>
-
 <body>
   <table>
     <tr>
@@ -50,7 +58,7 @@
           <form action="/posttext" method="POST">
             <input type="hidden" name="text" id="testvalue" value="10 push-ups">
             <button type="submit" id="testlabel">10 push-ups</button>
-          <button type="button" title="Edit" onclick="activity = prompt('Edit activity:', document.getElementById('testvalue').value); if (activity) { document.getElementById('testlabel').innerText = activity; document.getElementById('testvalue').value = activity }">✎</button>
+          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
           </form>
         </p>
         <p>
