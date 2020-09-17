@@ -30,11 +30,13 @@
     }
   </style>
   <script>
-    function editButton() {
-      let activity = prompt('Edit activity:', document.getElementById('testvalue').value);
+    function editButton(editButton) {
+      let activityButton = editButton.previousElementSibling;
+      let hiddenInput = activityButton.previousElementSibling;
+      let activity = prompt('Edit activity:', hiddenInput.value);
       if (activity) {
-        document.getElementById('testlabel').innerText = activity;
-        document.getElementById('testvalue').value = activity;
+        activityButton.innerText = activity;
+        hiddenInput.value = activity;
       }
     }
   </script>
@@ -56,9 +58,9 @@
         </p>
         <p>
           <form action="/posttext" method="POST">
-            <input type="hidden" name="text" id="testvalue" value="10 push-ups">
-            <button type="submit" id="testlabel">10 push-ups</button>
-          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
+            <input type="hidden" name="text" value="10 push-ups">
+            <button type="submit">10 push-ups</button>
+            <button type="button" title="Edit" onclick="editButton(this)">✎</button>
           </form>
         </p>
         <p>
