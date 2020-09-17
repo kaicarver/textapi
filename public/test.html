@@ -10,11 +10,11 @@
     td { vertical-align: top; }
 
     iframe {
-      height: 500px;
+      height: 800px;
+      width: 500px;
       left: 0;
       position: relative;
       top: 0;
-      width: 800px;
       resize: both;
     }
 
@@ -58,7 +58,7 @@
         </p>
         <p>
           <form action="/posttext" method="POST">
-            <input type="hidden" name="text" value="10 push-ups">
+            <input type="hidden" value="10 push-ups" name="text">
             <button type="submit">10 push-ups</button>
             <button type="button" title="Edit" onclick="editButton(this)">✎</button>
           </form>
@@ -73,12 +73,15 @@
           pre-filled out text can be handy as a shortcut to post activities in a certain conventional, easy-to-mine
           format.
         <form action="/posttext" method="POST">
-          <input type="text" name="text" value="25 push-ups 25 sit ups 25 squats">
-          <button type="submit">posttext</button><br>
+          <input type="hidden" value="25 push-ups 25 sit ups 25 squats" name="text">
+          <button type="submit">25 push-ups 25 sit ups 25 squats</button>
+          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
         </form>
         <form action="/posttext" method="POST">
-          <input type="text" name="text" value="10 bench dips">
-          <button type="submit">posttext</button><br>
+          <input type="hidden" value="10 bench dips" name="text">
+          <button type="submit">10 bench dips</button>
+          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
+          <br>
         </form>
         <form action="/posttext" method="POST">
           <input type="text" name="text" value="10 practice pullups">
