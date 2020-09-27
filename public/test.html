@@ -64,20 +64,17 @@
     <tr>
       <td>
         <h1>Kai's Tiny Text-posting API</h1>
-        <div id="app">
-          <p v-for="link in links">
-            <a :href="link.URL" :target="link.URL">{{link.label}}</a>
-          </p>
-        </div>
         <p>
           <a href="/gettext">gettext
             Shows all the text posted so far.</a>
         </p>
-        <form action="/posttext" method="POST">
-          <input type="hidden" name="text" value="10 push-ups">
-          <button class="activity" type="submit">10 push-ups</button>
-          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-        </form>
+        <div id="app">
+          <form v-for="link in links" action="/posttext" method="POST">
+            <input type="hidden" name="text" :value="link.label">
+            <button class="activity" type="submit">{{link.label}}</button>
+            <button type="button" title="Edit" onclick="editButton(this)">✎</button>
+          </form>
+        </div>
         <form action="/posttext" method="POST">
           <input type="hidden" name="text" value="10 sit-ups">
           <button class="activity" type="submit">10 sit-ups</button>
@@ -162,8 +159,8 @@
       el: '#app',
       data: {
         links: [
-          { "URL": "URL", "label": "label1" },
-          { "URL": "URL", "label": "label2" },
+          { "label": "30 pushups" },
+          { "label": "10 pushups" },
         ]
       }
     })
