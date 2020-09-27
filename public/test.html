@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Kai's Tiny Text-posting API</title>
   <base href="https://powerful-anchorage-09770.herokuapp.com/" target="output">
@@ -54,17 +55,20 @@
         hiddenInput.value = activity;
       }
     }
-    function setup() {
-      alert('setup NYI')
-    }
   </script>
 </head>
 
-<body onload="setup()">
+<body>
+
   <table>
     <tr>
       <td>
         <h1>Kai's Tiny Text-posting API</h1>
+        <div id="app">
+          <p v-for="link in links">
+            <a :href="link.URL" :target="link.URL">{{link.label}}</a>
+          </p>
+        </div>
         <p>
           <a href="/gettext">gettext
             Shows all the text posted so far.</a>
@@ -151,6 +155,19 @@
   <p>
     <a href="/">Home</a>
   </p>
+  <script src="https://unpkg.com/vue"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>-->
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        links: [
+          { "URL": "URL", "label": "label1" },
+          { "URL": "URL", "label": "label2" },
+        ]
+      }
+    })
+  </script>
 </body>
 
 </html>
