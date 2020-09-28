@@ -68,6 +68,10 @@
           <a href="/gettext">gettext
             Shows all the text posted so far.</a>
         </p>
+        <form action="/posttext" method="POST">
+          <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
+          <button type="submit">posttext</button>
+        </form>
         <div id="app">
           <form v-for="link in links" action="/posttext" method="POST">
             <input type="hidden" name="text" :value="link.label">
@@ -75,63 +79,6 @@
             <button type="button" title="Edit" onclick="editButton(this)">✎</button>
           </form>
         </div>
-        <form action="/posttext" method="POST">
-          <input type="hidden" name="text" value="10 sit-ups">
-          <button class="activity" type="submit">10 sit-ups</button>
-          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="hidden" value="10 squats" name="text">
-          <button class="activity" type="submit">10 squats</button>
-          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
-          <button type="submit">posttext</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="hidden" value="30 push-ups 30 sit ups 30 squats" name="text">
-          <button class="activity" type="submit">30 push-ups 30 sit ups 30 squats</button>
-          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="hidden" value="10 bench dips" name="text">
-          <button class="activity" type="submit">10 bench dips</button>
-          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="text" name="text" value="10 practice pullups">
-          <button type="submit">posttext</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="text" name="text" value="2 salutes to the sun">
-          <button type="submit">posttext</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="text" name="text" value="10 reverse lunges">
-          <button type="submit">posttext</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="text" name="text" value="10 jumping jacks">
-          <button type="submit">posttext</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="text" name="text" value="5 burpees">
-          <button type="submit">posttext</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="hidden" value="10 bench dips" name="text">
-          <button class="activity" type="submit">10 bench dips</button>
-          <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="hidden" value="go to sleep" name="text">
-          <button class="activity" type="submit">go to sleep</button>
-        </form>
-        <form action="/posttext" method="POST">
-          <input type="hidden" value="wake up" name="text">
-          <button class="activity" type="submit">wake up</button>
-        </form>
       </td>
       <td>
         <div class="iframe-container">
@@ -158,10 +105,22 @@
     const app = new Vue({
       el: '#app',
       data: {
-        links: [
-          { "label": "30 pushups" },
-          { "label": "10 pushups" },
-        ]
+        links: `
+30 pushups
+10 pushups
+10 sit-ups
+10 squats
+30 push-ups 30 sit ups 30 squats
+10 bench dips
+10 practice pullups
+2 salutes to the sun
+10 reverse lunges
+10 jumping jacks
+5 burpees
+go to sleep
+wake up
+`
+        .trim().split("\n").map(line => { return { "label": line } })
       }
     })
   </script>
