@@ -1,55 +1,32 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Kai's Tiny Text-posting API</title>
   <base href="https://powerful-anchorage-09770.herokuapp.com/" target="output">
   <style>
+    html { font-size: 100%; } /*16px*/
+    h1 { font-size: 1.5em; }
+    form {
+      margin: 0;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+    input { width: 20em; }
+    .activity { font-size: 1.5em; }
+    textarea {
+      width: 20em;
+      height: 5em;
+    }
     iframe {
-      height: 800px;
+      height: 300px;
       width: 500px;
       left: 0;
       position: relative;
       top: 0;
       resize: both;
     }
-
-    form {
-      margin: 0;
-      margin-bottom: 10px;
-      padding: 0;
-    }
-
-    h1 {
-      font-size: 1.5em;
-    }
-
-    input {
-      width: 20em;
-    }
-
-    .activity {
-      font-size: 1.5rem;
-    }
-
-    textarea {
-      width: 20em;
-      height: 5em;
-    }
   </style>
-  <script>
-    function editButton(editButton) {
-      let activityButton = editButton.previousElementSibling;
-      let hiddenInput = activityButton.previousElementSibling;
-      let activity = prompt('Edit activity:', hiddenInput.value);
-      if (activity) {
-        activityButton.innerText = activity;
-        hiddenInput.value = activity;
-      }
-    }
-  </script>
 </head>
-
 <body>
   <h1>Kai's Tiny Text-posting API</h1>
   <p>
@@ -105,6 +82,15 @@ wake up
           .trim().split("\n").map(line => { return { "label": line } })
       }
     })
+    function editButton(editButton) {
+      let activityButton = editButton.previousElementSibling;
+      let hiddenInput = activityButton.previousElementSibling;
+      let activity = prompt('Edit activity:', hiddenInput.value);
+      if (activity) {
+        activityButton.innerText = activity;
+        hiddenInput.value = activity;
+      }
+    }
   </script>
 </body>
 
