@@ -6,15 +6,18 @@
   <style>
     html { font-size: 100%; } /*16px*/
     h1 { font-size: 1.5em; }
+    #app { text-align: center; }
     form {
       margin: 0;
-      margin-bottom: 10px;
-      padding: 0;
+      margin-bottom: 0em;
+      padding-bottom: 2em;
+      display: inline-block;
     }
     input { width: 20em; }
     .activity { font-size: 1.5em; }
+    #freetext { display: block; width: 100%; }
     textarea {
-      width: 20em;
+      width: 100%;
       height: 5em;
     }
     iframe {
@@ -33,7 +36,7 @@
     <a href="/gettext">gettext
       Shows all the text posted so far.</a>
   </p>
-  <form action="/posttext" method="POST">
+  <form action="/posttext" method="POST" id="freetext">
     <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
     <button type="submit">posttext</button>
   </form>
