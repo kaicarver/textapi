@@ -5,14 +5,6 @@
   <title>Kai's Tiny Text-posting API</title>
   <base href="https://powerful-anchorage-09770.herokuapp.com/" target="output">
   <style>
-    table {
-      width: 100%;
-    }
-
-    td {
-      vertical-align: top;
-    }
-
     iframe {
       height: 800px;
       width: 500px;
@@ -59,34 +51,25 @@
 </head>
 
 <body>
-
-  <table>
-    <tr>
-      <td>
-        <h1>Kai's Tiny Text-posting API</h1>
-        <p>
-          <a href="/gettext">gettext
-            Shows all the text posted so far.</a>
-        </p>
-        <form action="/posttext" method="POST">
-          <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
-          <button type="submit">posttext</button>
-        </form>
-        <div id="app">
-          <form v-for="link in links" action="/posttext" method="POST">
-            <input type="hidden" name="text" :value="link.label">
-            <button class="activity" type="submit">{{link.label}}</button>
-            <button type="button" title="Edit" onclick="editButton(this)">✎</button>
-          </form>
-        </div>
-      </td>
-      <td>
-        <div class="iframe-container">
-          <iframe name="output"></iframe>
-        </div>
-      </td>
-    </tr>
-  </table>
+  <h1>Kai's Tiny Text-posting API</h1>
+  <p>
+    <a href="/gettext">gettext
+      Shows all the text posted so far.</a>
+  </p>
+  <form action="/posttext" method="POST">
+    <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
+    <button type="submit">posttext</button>
+  </form>
+  <div id="app">
+    <form v-for="link in links" action="/posttext" method="POST">
+      <input type="hidden" name="text" :value="link.label">
+      <button class="activity" type="submit">{{link.label}}</button>
+      <button type="button" title="Edit" onclick="editButton(this)">✎</button>
+    </form>
+  </div>
+  <div class="iframe-container">
+    <iframe name="output"></iframe>
+  </div>
   <p>
     So far the API is very simple, and very experimental. You can post a bit of text with <code>posttext</code>, which
     takes a single parameter
@@ -94,7 +77,6 @@
     <code>gettext</code> (probably will use a single <code>text</code> endpoint for both in the final version).
     Pre-filled out text can be handy as a shortcut to post activities in a certain conventional, easy-to-mine
     format.
-
   </p>
   <p>
     <a href="/">Home</a>
@@ -120,7 +102,7 @@
 go to sleep
 wake up
 `
-        .trim().split("\n").map(line => { return { "label": line } })
+          .trim().split("\n").map(line => { return { "label": line } })
       }
     })
   </script>
