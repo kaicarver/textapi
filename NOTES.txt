@@ -1,7 +1,17 @@
 This is how to deploy to Heroku:
 
-sudo git push heroku master
+  sudo git push heroku master
 
 Regular commits just go to the GitHub repo without affecting the version currently deployed on Heroku.
 
-See README.md for how to access database.
+Sometimes, you will have to authenticate to Heroku.
+
+That's confusingly a different authentication from Github and from root, but don't panic, it's done pretty easily from the command line like so, which directs to a browser-based authentication on Heroku's site:
+
+  sudo heroku login
+
+To access the database:
+
+  sudo heroku pg:psql -c "select created, message from note where created between '2020-07-03' and '2020-07-04';" --app "powerful-anchorage-09770"
+
+See README.md for more database access commands.

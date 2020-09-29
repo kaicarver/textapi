@@ -32,6 +32,10 @@ and even pipe the first one directly into:
 
     perl ../blog/countpushups.pl
 
+Here's how to delete a note:
+
+    sudo heroku pg:psql -c "delete from note where note_id=865;" --app "powerful-anchorage-09770"
+
 ### posting the text
 
 And there will be a less dumb function than `badposttext` for posting text...
