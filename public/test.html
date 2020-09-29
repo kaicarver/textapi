@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kai's Tiny Text-posting API</title>
+  <title>Mitra - Tiny Text-posting API</title>
   <base href="https://powerful-anchorage-09770.herokuapp.com/" target="output">
   <style>
     html { font-size: 100%; } /*16px*/
@@ -23,7 +23,7 @@
       height: 5em;
     }
     iframe {
-      height: 300px;
+      height: 10em;
       width: 99%;
       left: 0;
       position: relative;
@@ -33,15 +33,14 @@
   </style>
 </head>
 <body>
-  <h1>Kai's Tiny Text-posting API</h1>
+  <h1>Mitra - Tiny Text-posting API</h1>
   <p>
-    <a href="/gettext" class="activity">gettext -
-      show all the text posted so far.</a>
+    <a href="/gettext" class="activity">
+      show all the text posted so far:</a>
   </p>
-  <form action="/posttext" method="POST" id="freetext">
-    <textarea name="text" placeholder="Text area">Today is going to be a great day.</textarea>
-    <button class="activity" type="submit">posttext</button>
-  </form>
+  <div class="iframe-container">
+    <iframe name="output" src="/gettext"></iframe>
+  </div>
   <div id="app">
     <form v-for="link in links" action="/posttext" method="POST">
       <input type="hidden" name="text" :value="link.label">
@@ -49,9 +48,10 @@
       <button type="button" title="Edit" onclick="editButton(this)">✎</button>
     </form>
   </div>
-  <div class="iframe-container">
-    <iframe name="output"></iframe>
-  </div>
+  <form action="/posttext" method="POST" id="freetext">
+    <textarea name="text" onclick="this.focus();this.select()">Today is going to be a great day.</textarea>
+    <button class="activity" type="submit">post arbitrary text</button>
+  </form>
   <p>
     So far the API is very simple, and very experimental. You can post a bit of text with <code>posttext</code>, which
     takes a single parameter
