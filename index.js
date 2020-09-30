@@ -46,7 +46,7 @@ express()
     try {
       const client = await pool.connect();
       const result = await client.query("INSERT INTO note(message) VALUES($1)", [req.body.text]);
-      res.send('inserted a note via POST with safe INSERT: ' + req.body.text);
+      res.send('note: <' + req.body.text + '> at ' + new Date().toISOString() + ' INSERTed via POST.');
       client.release();
     } catch (err) {
       console.error(err);
